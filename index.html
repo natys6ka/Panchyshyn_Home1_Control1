@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="textSpace">
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="btnPlace">
+        <button class="editbtn">edit</button>
+        <button class="stylebtn">style</button>
+    </div>
+    <div class="editSpace">
+        <div class="editBlock" hidden>
+            <textarea id="textArea"></textarea>
+            <button class="addTxtbtn">add</button>
+            <button class="saveTxtbtn">save</button>
+        </div>
+        <div class="styleBlock" hidden>
+            <div class="onestyleBlock" hidden>
+                <h4>Font Size:</h4>
+                <form class="radio">
+                    <span>
+                        <input onclick="sizeChange()" type="radio" name="size" id="12px">
+                        <label for="12px">12px</label>
+                    </span>
+                    <span>
+                        <input onclick="sizeChange()" type="radio" name="size" id="14px">
+                        <label for="14px">14px</label>
+                    </span>
+                    <span>
+                        <input onclick="sizeChange()" type="radio" name="size" id="16px" checked>
+                        <label for="16px">16px</label>
+                    </span>
+                    <span>
+                        <input onclick="sizeChange()" type="radio" name="size" id="18px">
+                        <label for="18px">18px</label>
+                    </span>
+                    <span>
+                        <input onclick="sizeChange()" type="radio" name="size" id="20px">
+                        <label for="20px">20px</label>
+                    </span>
+                </form>
+
+                <br>
+                <p></p>
+                <h4>Font Family:</h4>
+                <form class="fFam">
+                    <select name="slcFontFamily">
+                        <option value="" disabled selected>Choose option</option>
+                        <option value="cursive">cursive</option>
+                        <option value="fantasy">fantasy</option>
+                        <option value="monospace">monospace</option>
+                        <option value="sans-serif">sans-serif</option>
+                    </select>
+                </form>
+                <p></p>
+                <h4>Colors:</h4>
+                <button class="colorbtn colTxtBtn" onclick="TextColor()">Color of Text</button>
+                <button class="colorbtn bacgrTxtBtn" onclick="BackColor()">Background color</button>
+                <p></p>
+                <h4>Style:</h4>
+                <form class="cheked">
+                    <span>
+                        <input onclick="fontWeight()" type="checkbox" name="text" id="bold">
+                        <label for="bold">Bold text</label> </span>
+                    <span>
+                        <input onclick="fontStyle()" type="checkbox" name="text" id="italic">
+                        <label for="italic">Cursive text</label> </span>
+                </form>
+            </div>
+            <div class="twocolorBlock">
+                <div class="col" id="red" onclick="ChangeColor()"></div>
+                <div class="col" id="blue" onclick="ChangeColor()"></div>
+                <div class="col" id="green" onclick="ChangeColor()"></div>
+                <div class="col" id="black" onclick="ChangeColor()"></div>
+                <div class="col" id="orange" onclick="ChangeColor()"></div>
+                <div class="col" id="pink" onclick="ChangeColor()"></div>
+                <div class="col" id="white" onclick="ChangeColor()"></div>
+                <div class="col" id="purple" onclick="ChangeColor()"></div>
+                <div class="col" id="yellow" onclick="ChangeColor()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tableSpace" hidden>
+        <h3>Choose what you want</h3>
+        <form class="typetable">
+            <input type="radio" name="typetable" id="table" onclick="tableCreated()">
+            <label for="table">table</label>
+            <input type="radio" name="typetable" id="list" onclick="listCreated()">
+            <label for="list">list</label>
+        </form>
+        <div class="tableCreate" hidden>
+                <label class="lab" for="countTR">Count TR:</label>
+                <input type="text" class="inpText" id="countTR" placeholder="Count TR:">
+            <br>
+                <label class="lab" for="countTD">Count TD:</label>
+                <input type="text" class="inpText" id="countTD" placeholder="Count TD:">
+            <h4>Add style to your table:</h4>
+                <label class="lab" for="widthTD">Width of TD:</label>
+                <input type="text" class="inpText" id="widthTD" placeholder="Width of TD:">
+            <br>
+                <label class="lab" for="heightTD">Height of TD:</label>
+                <input type="text" class="inpText" id="heightTD" placeholder="Height of TD:">
+            <br>
+            <div class="oneRow">
+                <div>
+                    <label class="lab" for="widborder">Width of border:</label>
+                    <input type="number" class="border" id="widborder" placeholder="Width:">
+                </div>
+                <div>
+                    <label class="lab" for="typborder">Type of border:</label>
+                    <select class="border" id="typborder">
+                        <option value="dashed">dashed</option>
+                        <option value="dotted">dotted</option>
+                        <option value="double">double</option>
+                        <option value="solid" selected>solid</option>
+                        <option value="none">none</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="lab" for="colborder">Color of border:</label>
+                    <select class="border" id="colborder">
+                        <option value="black">black</option>
+                        <option value="red" selected>red</option>
+                        <option value="blue">blue</option>
+                        <option value="green">green</option>
+                    </select>
+                </div>
+            </div>
+            <button class="greenBtn" onclick="tableNew()">Create table</button>
+        </div>
+        <div class="listCreate" hidden>
+            <label class="lab" for="countLi">Count Li:</label>
+            <input type="text" class="inpText" id="countLi" placeholder="Count Li:">
+        <br>
+            <label class="lab" for="typeMark">Type of marks:</label>
+            <select class="inpText" id="typeMark">
+                <option value="circle" selected>circle</option>
+                <option value="disc">disc</option>
+                <option value="square">square</option>
+            </select>
+            <button class="greenBtn" onclick="listNew()">Create list</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
